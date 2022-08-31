@@ -6,9 +6,9 @@
     "scripts": {
         "register": "ts-node src/register.ts",
         "dev": "nodemon src/bot.ts",
-        "postinstall": "prisma generate",
+        "generate": "pnpm prisma generate",
         "build": "tsc",
-        "start": "pnpm register && node dist/bot.js",
+        "start": "node dist/register.js && node dist/bot.js",
         "lint": "eslint --no-error-on-unmatched-pattern --fix --max-warnings 0 src",
         "precommit": "lint-staged",
         "prepare": "husky install"

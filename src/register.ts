@@ -1,10 +1,10 @@
 import { config } from 'dotenv';
-import { REST, Routes } from 'discord.js';
+import { REST, Routes, SlashCommandBuilder } from 'discord.js';
 import { getEnv } from './util/env';
 
 config();
 
-const commands = [];
+const commands: SlashCommandBuilder[] = [];
 
 const rest = new REST({ version: '10' }).setToken(getEnv('discord_token'));
 
