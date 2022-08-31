@@ -1,11 +1,12 @@
-FROM node:16
+FROM node:16-alpine
 
-RUN curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+RUN npm install -g pnpm
 
 COPY package.json pnpm-lock.yaml ./
 COPY prisma ./prisma/
 
-RUN pnpm install --frozen-lockfile
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts
+RUN pnpm install -D prisma
 RUN pnpm generate
 
 COPY . .
